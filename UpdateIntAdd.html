@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+1st No:&nbsp;&nbsp;<input type="text" id="txt1" align="right" width="48" height="48"  onkeyup="isNumber(this);" />
+</br>
+2nd No:&nbsp;<input type="text" id="txt2" align="right" width="48" height="48"   onkeyup="isNumber(this);" />
+</br>
+3rd No:&nbsp;&nbsp;<input type="text" id="txt3" align="right" width="48" height="48"  onkeyup="isNumber(this);" />
+</br>
+Sum:&nbsp;&nbsp;&nbsp;&nbsp; <input type="label" size="20" id="txt4" align="right" width="48" height="48" >
+</br>
+
+   
+   
+<script type="text/javascript">
+function sum() {
+    var txtFirstNumberValue = document.getElementById('txt1').value;
+    var txtSecondNumberValue = document.getElementById('txt2').value;
+	var txtThirdNumberValue = document.getElementById('txt3').value;
+	if (txtFirstNumberValue=="") txtFirstNumberValue = 0;
+	if (txtSecondNumberValue=="") txtSecondNumberValue = 0;
+	if (txtThirdNumberValue=="") txtThirdNumberValue = 0;
+	
+    var result = parseInt(txtFirstNumberValue) + parseInt(txtSecondNumberValue) + parseInt(txtThirdNumberValue);
+    if (!isNaN(result)) {
+       document.getElementById('txt4').value = result;
+    }
+}
+        //function to check if input is an integer
+function isNumber(obj) {
+    var inp=obj.value;
+	if (inp=="") {sum();}
+	//alert(inp);
+	else{
+	//alert(inp);
+    //window.alert(inp);
+    inp=reverse(inp);
+    var charCode = inp.charCodeAt(0);
+    //window.alert(charCode);
+    if (charCode > 47 && charCode < 58 ) {
+    	 //window.alert("integer");
+       	 sum();
+       }
+    else{
+    	window.alert("Only integers allowed");
+      	obj.value=""; 
+		sum();
+ }
+ }
+}
+function reverse(s) {
+  var o = '';
+  for (var i = s.length - 1; i >= 0; i--)
+    o += s[i];
+  return o;
+}
+
+   </script>
+</body>
+</html
